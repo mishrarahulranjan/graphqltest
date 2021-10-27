@@ -1,0 +1,25 @@
+type Query {
+    pair(id : ID!) : Pair
+}
+
+type Pair {
+    id: String
+    reserve0: String
+    reserve1: String
+    reserveUSD: String
+    trackedReserveUSD: String
+    token0Price: String
+    token1Price: String
+    volumeUSD: String
+    txCount: String
+    token0: Token
+    token1: Token
+}
+
+type Token {
+     id: String
+     symbol: String
+     name: String
+     derivedETH: String
+}
+

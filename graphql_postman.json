@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "95faa556-5dd8-4017-ab44-40575194a758",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "graphql test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n    pair(id: \"0x1244OOOFF\"){\n    token0{\n        id\n        symbol\n        name\n        derivedETH\n    } \n    token1{\n        id\n        symbol\n        name\n        derivedETH\n    }\n    reserve0\n    reserve1\n}\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

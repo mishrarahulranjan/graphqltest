@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>GraphQL  Test Project</title>
+    <link href="prism.css" rel="stylesheet" />
+</head>
+<body>
+<pre>Result Data:<code class="language-json" id="code"></code></pre>
+<script src="prism.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.13.0/beautify.js"></script>
+<script>
+    (async function () {
+        const data = JSON.stringify({
+            query: `{pair(id: "0x1244OOOFF"){
+     token0 {
+       id
+       symbol
+       name
+       derivedETH
+     }
+     token1 {
+       id
+       symbol
+       name
+       derivedETH
+     }
+     reserve0
+     reserve1
+     reserveUSD
+     token0Price
+     token1Price
+     volumeUSD
+     txCount
+ }}`,
+        });
+
+        const response = await fetch(
+            'http://localhost:8081/graphql',
+            {
+                method: 'post',
+                body: data,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Content-Length': data.length,
+                },
+            }
+        );
+
+        const json = await response.json();
+        document.getElementById('code').innerHTML = js_beautify(
+            JSON.stringify(json.data)
+        );
+        Prism.highlightAll();
+    })();
+</script>
+</body>
+</html>
